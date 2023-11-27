@@ -1,0 +1,18 @@
+.tabs-tab {
+    border-width: 0;
+    background: none;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.tabs-tab:hover, .tabs-tab:focus {
+    outline: none;
+    border: none;
+}
+
+.tabs-tab.active {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-color: var(--link-color);
+    border-style: solid;
+}

@@ -1,0 +1,51 @@
+.editor {
+    height: 100%;
+    position: relative;
+}
+
+.doll-frame {
+    position: relative;
+    border: 1px solid black;
+}
+
+.added-piece {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.link-button {
+    background: none;
+    color: var(--link-color);
+    border: none;
+}
+
+.link-button:focus {
+    text-decoration: underline;
+    border: none;
+    outline: none;
+}
+
+.hair {
+    z-index: 1;
+}
+
+.top {
+    z-index: 2;
+}
+
+.socks {
+    z-index: 3;
+}
+
+.pants {
+    z-index: 4;
+}
+
+.outerwear {
+    z-index: 5;
+}
+
+.shoes {
+    z-index: 6;
+}
