@@ -40,7 +40,6 @@ type TabContentProps = {
 function TabContent({ selectionGroup }: TabContentProps) {
     return (
         <section className="selection-section" key={selectionGroup.title}>
-            <h2 className="selection-title">{selectionGroup.title}</h2>
             <div className="selection-items">
                 {selectionGroup.items.map(item => (
                     <Item item={item} key={item.id} />

@@ -53,12 +53,14 @@ export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
                 ))}
                 <img alt="body" className="" src={body1} />
             </div>
-            <button className="link-button" onClick={reset}>
-                Reset
-            </button>
-            <button className="link-button" onClick={undo}>
-                Undo
-            </button>
+            <div className="editor-button-row">
+                <button className="link-button" onClick={reset}>
+                    Reset
+                </button>
+                <button className="link-button" onClick={undo}>
+                    Undo
+                </button>
+            </div>
         </section>
     );
 }

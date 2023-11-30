@@ -14,6 +14,11 @@
     left: 0;
 }
 
+.editor-button-row {
+    display: flex;
+    justify-content: space-around;
+}
+
 .link-button {
     background: none;
     color: var(--link-color);
