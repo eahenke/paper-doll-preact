@@ -3,11 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/paper-doll.es.js",
+      "require": "./dist/paper-doll.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "bundle": "tsc && vite build --config ./vite.prod.config.ts"
   },
   "dependencies": {
     "@preact/compat": "^17.1.2",
