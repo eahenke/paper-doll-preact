@@ -35,30 +35,25 @@ const itemGroups: ItemGroups = {
 
 type TabContentProps = {
     selectionGroup: ItemGroup;
-    addItem: (item: ItemType) => void;
 };
 
-function TabContent({ selectionGroup, addItem }: TabContentProps) {
+function TabContent({ selectionGroup }: TabContentProps) {
     return (
         <section className="selection-section" key={selectionGroup.title}>
             <h2 className="selection-title">{selectionGroup.title}</h2>
             <div className="selection-items">
                 {selectionGroup.items.map(item => (
-                    <Item addItem={addItem} item={item} key={item.id} />
+                    <Item item={item} key={item.id} />
                 ))}
             </div>
         </section>
     );
 }
 
-export type ItemSelectorProps = {
-    addItem: (item: ItemType) => void;
-};
-
-export function ItemSelector({ addItem }: ItemSelectorProps) {
+export function ItemSelector() {
     const tabs = Object.values(itemGroups).map(itemGroup => ({
         title: itemGroup.title,
-        content: <TabContent addItem={addItem} selectionGroup={itemGroup} />
+        content: <TabContent selectionGroup={itemGroup} />
     }));
 
     return <Tabs tabs={tabs} />;

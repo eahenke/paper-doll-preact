@@ -1,21 +1,21 @@
-import './item.css';
+import { useDrag } from 'react-dnd';
 import { Item as ItemType } from '../../types/items';
+import './item.css';
 
 export type ItemProps = {
     item: ItemType;
-    addItem: (item: ItemType) => void;
 };
 
-export function Item({ item, addItem }: ItemProps) {
+export function Item({ item }: ItemProps) {
+    const [_, dragRef] = useDrag(() => ({
+        type: item.type,
+        item: item,
+        id: item.id
+    }));
+
     return (
         <div className="item">
-            <img
-                alt={item.id}
-                onClick={() => {
-                    addItem(item);
-                }}
-                src={item.srcSmall}
-            />
+            <img alt={item.id} ref={dragRef} src={item.srcSmall} />
         </div>
     );
 }

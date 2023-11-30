@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import { useDrop } from 'react-dnd';
 import body1 from '../../assets/bodies/body-1.png';
 import { Item } from '../../types/items';
 import { DollState } from '../../types/state';
@@ -32,9 +33,16 @@ export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
         .filter(isId)
         .map(id => ALL_ITEMS[id]);
 
+    const [_, dropRef] = useDrop(() => ({
+        accept: Object.values(ASSET_TYPE),
+        drop: (item: Item) => {
+            addItem(item);
+        }
+    }));
+
     return (
         <section className="editor">
-            <div className="doll-frame">
+            <div className="doll-frame" ref={dropRef}>
                 {pieces.map(piece => (
                     <img
                         alt={piece.id}
