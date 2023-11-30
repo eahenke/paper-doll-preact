@@ -12,10 +12,16 @@ export default defineConfig({
         }
     },
     build: {
+        outDir: './script-dist',
         lib: {
             entry: path.resolve(__dirname, 'src/main.tsx'),
             name: 'paper-doll',
             fileName: format => `paper-doll.${format}.js`
+        },
+        rollupOptions: {
+            output: {
+                assetFileNames: 'paper-doll.[ext]'
+            }
         }
     }
 });
