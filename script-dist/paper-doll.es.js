@@ -3433,9 +3433,9 @@ function xt() {
     }, this)
   }, void 0);
 }
-var Ut = "/Users/eahenke/github/paper-doll-preact/src/main.tsx";
+var Ut = "/Users/eahenke/github/paper-doll-preact/src/widget.tsx";
 mI(p(xt, {}, void 0, !1, {
   fileName: Ut,
-  lineNumber: 5,
+  lineNumber: 4,
   columnNumber: 8
 }, void 0), document.getElementById("paper-doll"));

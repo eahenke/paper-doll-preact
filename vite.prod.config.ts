@@ -14,7 +14,7 @@ export default defineConfig({
     build: {
         outDir: './script-dist',
         lib: {
-            entry: path.resolve(__dirname, 'src/main.tsx'),
+            entry: path.resolve(__dirname, 'src/widget.tsx'),
             name: 'paper-doll',
             fileName: format => `paper-doll.${format}.js`
         },
