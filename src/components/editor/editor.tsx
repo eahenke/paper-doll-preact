@@ -7,6 +7,7 @@ import { ALL_ITEMS } from '../../data/items';
 import { ASSET_TYPE } from '../../constants/assets';
 import { AssetType } from '../../types/assets';
 import './editor.css';
+import { useExternalSettings } from '../../state';
 
 export type EditorProps = {
     dollState: DollState;
@@ -29,6 +30,7 @@ const itemClassnames = {
 const getClassname = (type: AssetType) => itemClassnames[type] || '';
 
 export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
+    const external = useExternalSettings();
     const pieces = Object.values(dollState)
         .filter(isId)
         .map(id => ALL_ITEMS[id]);
@@ -54,10 +56,10 @@ export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
                 <img alt="body" className="" src={body1} />
             </div>
             <div className="editor-button-row">
-                <button className="link-button" onClick={reset}>
+                <button className={cx(external.linkClass, 'link-button')} onClick={reset}>
                     Reset
                 </button>
-                <button className="link-button" onClick={undo}>
+                <button className={cx(external.linkClass, 'link-button')} onClick={undo}>
                     Undo
                 </button>
             </div>

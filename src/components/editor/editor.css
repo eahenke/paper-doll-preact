@@ -6,6 +6,7 @@
 .doll-frame {
     position: relative;
     border: 1px solid black;
+    border-radius: 4px;
 }
 
 .added-piece {

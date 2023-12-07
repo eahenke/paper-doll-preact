@@ -13,6 +13,6 @@
 .tabs-tab.active {
     border-width: 0;
     border-bottom-width: 1px;
-    border-color: var(--link-color);
+    border-color: var(--main-color);
     border-style: solid;
 }
