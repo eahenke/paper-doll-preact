@@ -3,6 +3,8 @@
     background: none;
     background-color: transparent;
     border-radius: 0;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .tabs-tab:hover, .tabs-tab:focus {

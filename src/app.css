@@ -1,10 +1,14 @@
 :root {
-  --editor-background-color: #fdfdfd;
+  --editor-background-color: transparent;
 }
 
 /* TODO: mobile */
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 2rem;
+  grid-column-gap: 36px;
+}
+
+#paper-doll img {
+  border: 0;
 }
