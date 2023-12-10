@@ -30,31 +30,3 @@
     border: none;
     outline: none;
 }
-
-.top {
-    z-index: 1;
-}
-
-.hair {
-    z-index: 2;
-}
-
-.socks {
-    z-index: 3;
-}
-
-.pants {
-    z-index: 4;
-}
-
-.middlewear {
-    z-index: 5;
-}
-
-.outerwear {
-    z-index: 6;
-}
-
-.shoes {
-    z-index: 7;
-}

@@ -1,13 +1,17 @@
 import { FULL_SIZE_SOURCES, SMALL_SIZE_SOURCES } from './asset-sources.dev';
 import { ASSET_TYPE } from '../constants/assets';
 import { Item } from '../types/items';
+import { Z_INDICES } from '../constants/z-indices';
 
 export const HAIRS = {
     hair1: {
         id: 'hair1',
         type: ASSET_TYPE.HAIR,
         src: FULL_SIZE_SOURCES.hair1,
-        srcSmall: SMALL_SIZE_SOURCES.hair1
+        srcSmall: SMALL_SIZE_SOURCES.hair1,
+        style: {
+            zIndex: Z_INDICES.TOP + 1
+        }
     },
     hair2: {
         id: 'hair2',

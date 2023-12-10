@@ -5,9 +5,9 @@ import { Item } from '../../types/items';
 import { DollState } from '../../types/state';
 import { ALL_ITEMS } from '../../data/items';
 import { ASSET_TYPE } from '../../constants/assets';
-import { AssetType } from '../../types/assets';
 import './editor.css';
 import { useExternalSettings } from '../../state';
+import { Z_INDICES } from '../../constants/z-indices';
 
 export type EditorProps = {
     dollState: DollState;
@@ -18,17 +18,10 @@ export type EditorProps = {
 
 const isId = (x: string | null): x is string => !!x;
 
-const itemClassnames = {
-    [ASSET_TYPE.HAIR]: 'hair',
-    [ASSET_TYPE.TOP]: 'top',
-    [ASSET_TYPE.MIDDLEWEAR]: 'middlewear',
-    [ASSET_TYPE.OUTERWEAR]: 'outerwear',
-    [ASSET_TYPE.PANTS]: 'pants',
-    [ASSET_TYPE.SOCKS]: 'socks',
-    [ASSET_TYPE.SHOES]: 'shoes'
-};
-
-const getClassname = (type: AssetType) => itemClassnames[type] || '';
+const getStyle = (item: Item) => ({
+    zIndex: Z_INDICES[item.type],
+    ...item.style
+});
 
 export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
     const external = useExternalSettings();
@@ -50,9 +43,10 @@ export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
                 {pieces.map(piece => (
                     <img
                         alt={piece.id}
-                        className={cx('added-piece', getClassname(piece.type))}
+                        className="added-piece"
                         key={piece.id}
                         src={piece.src}
+                        style={getStyle(piece)}
                     />
                 ))}
                 <img alt="body" className="" src={body1} />

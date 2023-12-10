@@ -5,4 +5,5 @@ export type Item = {
     srcSmall: string;
     type: AssetType;
     id: string;
+    style?: Record<string, unknown>;
 };
