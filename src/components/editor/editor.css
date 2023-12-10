@@ -31,11 +31,11 @@
     outline: none;
 }
 
-.hair {
+.top {
     z-index: 1;
 }
 
-.top {
+.hair {
     z-index: 2;
 }
 
