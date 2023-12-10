@@ -2,109 +2,66 @@ import { FULL_SIZE_SOURCES, SMALL_SIZE_SOURCES } from './asset-sources.dev';
 import { ASSET_TYPE } from '../constants/assets';
 import { Item } from '../types/items';
 import { Z_INDICES } from '../constants/z-indices';
+import { AssetType } from '../types/assets';
 
-export const HAIRS = {
-    hair1: {
-        id: 'hair1',
-        type: ASSET_TYPE.HAIR,
-        src: FULL_SIZE_SOURCES.hair1,
-        srcSmall: SMALL_SIZE_SOURCES.hair1,
-        style: {
+const idPrefixToAssetTypes: Record<string, AssetType> = {
+    hair: ASSET_TYPE.HAIR,
+    shoes: ASSET_TYPE.SHOES,
+    jacket: ASSET_TYPE.OUTERWEAR,
+    sweater: ASSET_TYPE.MIDDLEWEAR,
+    shirt: ASSET_TYPE.TOP,
+    pants: ASSET_TYPE.PANTS,
+    shorts: ASSET_TYPE.PANTS,
+    socks: ASSET_TYPE.SOCKS
+};
+
+const filterItems = (items: Record<string, Item>, assetType: AssetType) =>
+    Object.fromEntries(Object.entries(items).filter(([_id, item]) => item.type === assetType));
+
+const splitCamelCase = (str: string) => str.replace(/([a-z](?=[A-Z]))/g, '$1 ').split(' ');
+
+const getAssetType = (id: string): AssetType => {
+    const [type] = splitCamelCase(id);
+
+    return idPrefixToAssetTypes[type];
+};
+
+const getStyles = (id: string) => {
+    if (id.toLowerCase().includes('pigtail')) {
+        return {
             zIndex: Z_INDICES.TOP + 1
-        }
-    },
-    hair2: {
-        id: 'hair2',
-        type: ASSET_TYPE.HAIR,
-        src: FULL_SIZE_SOURCES.hair2,
-        srcSmall: SMALL_SIZE_SOURCES.hair2
-    },
-    hair3: {
-        id: 'hair3',
-        type: ASSET_TYPE.HAIR,
-        src: FULL_SIZE_SOURCES.hair3,
-        srcSmall: SMALL_SIZE_SOURCES.hair3
+        };
     }
+
+    return undefined;
 };
 
-export const TOPS = {
-    top1: {
-        id: 'top1',
-        type: ASSET_TYPE.TOP,
-        src: FULL_SIZE_SOURCES.top1,
-        srcSmall: SMALL_SIZE_SOURCES.top1
-    },
-    top2: {
-        id: 'top2',
-        type: ASSET_TYPE.TOP,
-        src: FULL_SIZE_SOURCES.top2,
-        srcSmall: SMALL_SIZE_SOURCES.top2
-    }
+const createItems = () => {
+    const smallSrc = SMALL_SIZE_SOURCES as Record<string, string>;
+    const items = Object.entries(FULL_SIZE_SOURCES).reduce(
+        (accum, [id, src]) => {
+            accum[id] = {
+                id,
+                type: getAssetType(id),
+                src,
+                srcSmall: smallSrc[id],
+                style: getStyles(id)
+            };
+
+            return accum;
+        },
+        {} as Record<string, Item>
+    );
+
+    return items;
 };
 
-export const MIDDLEWEAR = {
-    sweater1: {
-        id: 'sweater1',
-        type: ASSET_TYPE.MIDDLEWEAR,
-        src: FULL_SIZE_SOURCES.sweater1,
-        srcSmall: SMALL_SIZE_SOURCES.sweater1
-    }
-};
+export const ALL_ITEMS: Record<string, Item> = createItems();
 
-export const OUTERWEAR = {
-    jacket1: {
-        id: 'jacket1',
-        type: ASSET_TYPE.OUTERWEAR,
-        src: FULL_SIZE_SOURCES.jacket1,
-        srcSmall: SMALL_SIZE_SOURCES.jacket1
-    }
-};
-
-export const PANTS = {
-    pants1: {
-        id: 'pants1',
-        type: ASSET_TYPE.PANTS,
-        src: FULL_SIZE_SOURCES.pants1,
-        srcSmall: SMALL_SIZE_SOURCES.pants1
-    },
-    pants2: {
-        id: 'pants2',
-        type: ASSET_TYPE.PANTS,
-        src: FULL_SIZE_SOURCES.shorts1,
-        srcSmall: SMALL_SIZE_SOURCES.shorts1
-    }
-};
-
-export const SOCKS = {
-    sock1: {
-        id: 'sock1',
-        type: ASSET_TYPE.SOCKS,
-        src: FULL_SIZE_SOURCES.socks1,
-        srcSmall: SMALL_SIZE_SOURCES.socks1
-    }
-};
-
-export const SHOES = {
-    shoes1: {
-        id: 'shoes1',
-        type: ASSET_TYPE.SHOES,
-        src: FULL_SIZE_SOURCES.shoes1,
-        srcSmall: SMALL_SIZE_SOURCES.shoes1
-    },
-    shoes2: {
-        id: 'shoes2',
-        type: ASSET_TYPE.SHOES,
-        src: FULL_SIZE_SOURCES.shoes2,
-        srcSmall: SMALL_SIZE_SOURCES.shoes2
-    }
-};
-
-export const ALL_ITEMS: Record<string, Item> = {
-    ...HAIRS,
-    ...TOPS,
-    ...MIDDLEWEAR,
-    ...OUTERWEAR,
-    ...PANTS,
-    ...SOCKS,
-    ...SHOES
-};
+export const HAIRS = filterItems(ALL_ITEMS, ASSET_TYPE.HAIR);
+export const TOPS = filterItems(ALL_ITEMS, ASSET_TYPE.TOP);
+export const MIDDLEWEAR = filterItems(ALL_ITEMS, ASSET_TYPE.MIDDLEWEAR);
+export const OUTERWEAR = filterItems(ALL_ITEMS, ASSET_TYPE.OUTERWEAR);
+export const PANTS = filterItems(ALL_ITEMS, ASSET_TYPE.PANTS);
+export const SOCKS = filterItems(ALL_ITEMS, ASSET_TYPE.SOCKS);
+export const SHOES = filterItems(ALL_ITEMS, ASSET_TYPE.SHOES);

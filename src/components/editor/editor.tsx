@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import { useDrop } from 'react-dnd';
-import body1 from '../../assets/bodies/body-1.png';
+import body from '../../assets/bodies/body.png';
 import { Item } from '../../types/items';
 import { DollState } from '../../types/state';
 import { ALL_ITEMS } from '../../data/items';
@@ -49,7 +49,7 @@ export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
                         style={getStyle(piece)}
                     />
                 ))}
-                <img alt="body" className="" src={body1} />
+                <img alt="body" className="" src={body} />
             </div>
             <div className="editor-button-row">
                 <button className={cx(external.linkClass, 'link-button')} onClick={reset}>
