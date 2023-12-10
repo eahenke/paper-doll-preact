@@ -38,18 +38,21 @@ export const TOPS = {
     }
 };
 
+export const MIDDLEWEAR = {
+    sweater1: {
+        id: 'sweater1',
+        type: ASSET_TYPE.MIDDLEWEAR,
+        src: FULL_SIZE_SOURCES.sweater1,
+        srcSmall: SMALL_SIZE_SOURCES.sweater1
+    }
+};
+
 export const OUTERWEAR = {
-    outerwear1: {
-        id: 'outerwear1',
+    jacket1: {
+        id: 'jacket1',
         type: ASSET_TYPE.OUTERWEAR,
-        src: FULL_SIZE_SOURCES.outerwear1,
-        srcSmall: SMALL_SIZE_SOURCES.outerwear1
-    },
-    outerwear2: {
-        id: 'outerwear2',
-        type: ASSET_TYPE.OUTERWEAR,
-        src: FULL_SIZE_SOURCES.outerwear2,
-        srcSmall: SMALL_SIZE_SOURCES.outerwear2
+        src: FULL_SIZE_SOURCES.jacket1,
+        srcSmall: SMALL_SIZE_SOURCES.jacket1
     }
 };
 
@@ -95,6 +98,7 @@ export const SHOES = {
 export const ALL_ITEMS: Record<string, Item> = {
     ...HAIRS,
     ...TOPS,
+    ...MIDDLEWEAR,
     ...OUTERWEAR,
     ...PANTS,
     ...SOCKS,

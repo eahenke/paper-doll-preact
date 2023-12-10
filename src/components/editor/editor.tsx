@@ -21,6 +21,7 @@ const isId = (x: string | null): x is string => !!x;
 const itemClassnames = {
     [ASSET_TYPE.HAIR]: 'hair',
     [ASSET_TYPE.TOP]: 'top',
+    [ASSET_TYPE.MIDDLEWEAR]: 'middlewear',
     [ASSET_TYPE.OUTERWEAR]: 'outerwear',
     [ASSET_TYPE.PANTS]: 'pants',
     [ASSET_TYPE.SOCKS]: 'socks',
@@ -31,6 +32,7 @@ const getClassname = (type: AssetType) => itemClassnames[type] || '';
 
 export function Editor({ dollState, addItem, reset, undo }: EditorProps) {
     const external = useExternalSettings();
+
     const pieces = Object.values(dollState)
         .filter(isId)
         .map(id => ALL_ITEMS[id]);

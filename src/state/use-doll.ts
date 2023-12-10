@@ -12,6 +12,7 @@ const initialDollState: DollState = {
     HAIR: null,
     TOP: null,
     OUTERWEAR: null,
+    MIDDLEWEAR: null,
     PANTS: null,
     SOCKS: null,
     SHOES: null

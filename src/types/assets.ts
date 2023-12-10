@@ -1,1 +1,1 @@
-export type AssetType = 'HAIR' | 'TOP' | 'OUTERWEAR' | 'PANTS' | 'SOCKS' | 'SHOES';
+export type AssetType = 'HAIR' | 'TOP' | 'MIDDLEWEAR' | 'OUTERWEAR' | 'PANTS' | 'SOCKS' | 'SHOES';

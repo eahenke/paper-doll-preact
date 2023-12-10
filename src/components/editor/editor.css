@@ -47,10 +47,14 @@
     z-index: 4;
 }
 
-.outerwear {
+.middlewear {
     z-index: 5;
 }
 
-.shoes {
+.outerwear {
     z-index: 6;
+}
+
+.shoes {
+    z-index: 7;
 }

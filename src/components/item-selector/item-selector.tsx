@@ -17,7 +17,7 @@ const itemGroups: ItemGroups = {
     },
     tops: {
         title: 'Tops',
-        items: [...Object.values(ITEMS.TOPS), ...Object.values(ITEMS.OUTERWEAR)]
+        items: [...Object.values(ITEMS.TOPS), ...Object.values(ITEMS.MIDDLEWEAR), ...Object.values(ITEMS.OUTERWEAR)]
     },
     pants: {
         title: 'Pants',
