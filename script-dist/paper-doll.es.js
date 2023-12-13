@@ -3081,7 +3081,7 @@ const MA = /* @__PURE__ */ Bg($E), AQ = "data:image/png;base64,iVBORw0KGgoAAAANS
 }, BB = (I) => {
   if (I.toLowerCase().includes("pigtail"))
     return {
-      zIndex: rg.TOP + 1
+      zIndex: rg.PANTS + 1
     };
 }, tB = () => {
   const I = gB;

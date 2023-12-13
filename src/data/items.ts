@@ -29,7 +29,7 @@ const getAssetType = (id: string): AssetType => {
 const getStyles = (id: string) => {
     if (id.toLowerCase().includes('pigtail')) {
         return {
-            zIndex: Z_INDICES.TOP + 1
+            zIndex: Z_INDICES.PANTS + 1
         };
     }
 
